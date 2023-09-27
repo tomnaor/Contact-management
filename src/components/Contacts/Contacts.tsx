@@ -1,14 +1,15 @@
 import { Contact } from "../Contact/Contact";
 import { ContactsTable } from "../ContactsTable/ContactsTable";
+import * as S from "./Contacts.style";
 import { useContact } from "./hooks/useContact";
 
 export const Contacts = () => {
-  const { selectedContact, handleSelectContact } = useContact();
+  const { selectedContact, handleSelectContact, closeContact } = useContact();
 
   return (
-    <div>
+    <S.ContactsContainer>
       <ContactsTable handleSelectContact={handleSelectContact} />
-      <Contact contact={selectedContact} />
-    </div>
+      <Contact contact={selectedContact} closeContact={closeContact} />
+    </S.ContactsContainer>
   );
 };

@@ -18,7 +18,7 @@ interface ContactsTableProps {
 export const ContactsTable = ({ handleSelectContact }: ContactsTableProps) => {
   return (
     <div>
-      <p>Contacts table</p>
+      <h4>Contacts table</h4>
       <S.Table>
         <thead>
           <tr>
