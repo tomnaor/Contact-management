@@ -7,6 +7,7 @@ export const ContactForm = styled.form`
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 0.8rem;
   padding: 1.2rem;
+  flex: 1;
 `;
 
 export const InputField = styled.input`

@@ -15,27 +15,34 @@ export const ContactsTable = ({ handleSelectContact }: ContactsTableProps) => {
   return (
     <div>
       <h4>Contacts table</h4>
-      <S.Table>
-        <thead>
-          <tr>
-            {contactsTableColumns.map((column) => (
-              <th key={column}>{column}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {contacts.map((contact) => (
-            <tr
-              key={contact.phone}
-              onClick={() => handleSelectContact(contact)}
-            >
-              <td>{contact.fullName}</td>
-              <td>{contact.email}</td>
-              <td>{contact.age}</td>
+      {!contacts?.length || contacts?.length === 0 ? (
+        <div>
+          <p>No contacts yet.</p>
+          <p>You can add new contact in the form :)</p>
+        </div>
+      ) : (
+        <S.Table>
+          <thead>
+            <tr>
+              {contactsTableColumns.map((column) => (
+                <th key={column}>{column}</th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </S.Table>
+          </thead>
+          <tbody>
+            {contacts.map((contact) => (
+              <tr
+                key={contact.phone}
+                onClick={() => handleSelectContact(contact)}
+              >
+                <td>{contact.fullName}</td>
+                <td>{contact.email}</td>
+                <td>{contact.age}</td>
+              </tr>
+            ))}
+          </tbody>
+        </S.Table>
+      )}
     </div>
   );
 };

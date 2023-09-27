@@ -6,7 +6,7 @@ export const ContactForm = () => {
     useCreateContactForm();
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <h3>Create new contact</h3>
       <S.ContactForm onSubmit={handleSubmit(onSubmitContact)}>
         <S.InputField

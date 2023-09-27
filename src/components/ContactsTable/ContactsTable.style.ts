@@ -12,16 +12,12 @@ export const Table = styled.table`
   }
 
   tbody {
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-
     tr {
       cursor: pointer;
     }
 
     tr:hover {
-      background-color: lightblue;
+      background-color: rgba(0, 0, 0, 0.05);
     }
   }
 `;
