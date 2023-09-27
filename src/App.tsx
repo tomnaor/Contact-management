@@ -1,10 +1,10 @@
-import { ContactsTable } from "./components/ContactsTable/ContactsTable";
+import { Contacts } from "./components/Contacts/Contacts";
 import { Layout } from "./pages/Layout/Layout";
 
 function App() {
   return (
     <Layout>
-      <ContactsTable />
+      <Contacts />
     </Layout>
   );
 }

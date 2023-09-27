@@ -1,9 +1,8 @@
-import { useState } from "react";
 import * as S from "./ContactsTable.style";
 import { contactsTableColumns } from "./constants/contactsTableColumns";
-import { Contact } from "./Contact.types";
+import { ContactType } from "../Contact/Contact.types";
 
-const contacts: Contact[] = [
+const contacts: ContactType[] = [
   {
     phone: "123456789",
     fullName: "John Doe",
@@ -12,15 +11,11 @@ const contacts: Contact[] = [
   },
 ];
 
-export const ContactsTable = () => {
-  const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
+interface ContactsTableProps {
+  handleSelectContact: (contact: ContactType) => void;
+}
 
-  const handleContactClick = (contact: Contact) => {
-    setSelectedContact(contact);
-  };
-
-  console.log(selectedContact);
-
+export const ContactsTable = ({ handleSelectContact }: ContactsTableProps) => {
   return (
     <div>
       <p>Contacts table</p>
@@ -34,7 +29,10 @@ export const ContactsTable = () => {
         </thead>
         <tbody>
           {contacts.map((contact) => (
-            <tr key={contact.phone} onClick={() => handleContactClick(contact)}>
+            <tr
+              key={contact.phone}
+              onClick={() => handleSelectContact(contact)}
+            >
               <td>{contact.fullName}</td>
               <td>{contact.email}</td>
               <td>{contact.age}</td>
