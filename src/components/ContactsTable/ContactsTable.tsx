@@ -1,21 +1,17 @@
 import * as S from "./ContactsTable.style";
 import { contactsTableColumns } from "./constants/contactsTableColumns";
 import { ContactType } from "../Contact/Contact.types";
-
-const contacts: ContactType[] = [
-  {
-    phone: "123456789",
-    fullName: "John Doe",
-    email: "johndoe@gmail.com",
-    age: 24,
-  },
-];
+import useLocalStorage from "use-local-storage";
 
 interface ContactsTableProps {
   handleSelectContact: (contact: ContactType) => void;
 }
 
 export const ContactsTable = ({ handleSelectContact }: ContactsTableProps) => {
+  const [contactsJson] = useLocalStorage("contacts", "");
+
+  const contacts = JSON.parse(contactsJson) as ContactType[];
+
   return (
     <div>
       <h4>Contacts table</h4>
