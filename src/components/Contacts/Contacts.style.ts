@@ -5,4 +5,5 @@ export const ContactsContainer = styled.div`
   align-items: stretch;
   width: 100%;
   gap: 2.4rem;
+  flex-wrap: wrap;
 `;
